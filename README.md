@@ -6,7 +6,7 @@
 
 #### This is my first project, don't judge strictly. 😃
 
-[Website for viewing the application]( https://magma4810.github.io/second_project_weather_app/)
+[Website for viewing the application](https://magma4810.github.io/second_project_weather_app/)
 
 - The application is written to display the user's weather in his city.
 
