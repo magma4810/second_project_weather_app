@@ -1,4 +1,4 @@
-![example event parameter](https://github.com/magma4810/weatherAPI_18_11_2023/actions/workflows/sanity-check.yml/badge.svg)
+![example event parameter](https://github.com/magma4810/second_project_weather_app/actions/workflows/sanity-check.yml/badge.svg)
 
 # Hi there, I'm Pasha![](https://github.com/blackcater/blackcater/raw/main/images/Hi.gif)
 
@@ -6,7 +6,7 @@
 
 #### This is my first project, don't judge strictly. 😃
 
-# second_project_weather_app
+[Website for viewing the application]( https://magma4810.github.io/second_project_weather_app/)
 
 - The application is written to display the user's weather in his city.
 
@@ -25,6 +25,8 @@
 ## Начинающий front-end разработчик-студент из России 🇷🇺.
 
 #### Это мой первый проект, не судите строго. 😃
+
+[Сайт для просмотра приложения](https://magma4810.github.io/second_project_weather_app/)
 
 - Приложение написано для отображения погоды пользователя в его городе.
 
