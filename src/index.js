@@ -1,5 +1,6 @@
 import "./styles.css";
+import { readInput } from "./addCityToList";
 
-export function sum(a, b) {
-  return a + b;
-}
+document.querySelector(".input_button").addEventListener("click", () => {
+  readInput();
+});
