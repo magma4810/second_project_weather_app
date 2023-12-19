@@ -9,8 +9,11 @@ input {
 }
 
 .show_weather {
-  box-sizing: content-box;
   border: 2px solid rgb(110, 156, 170);
   border-radius: 10px;
   height: 125px;
+}
+
+.clearStorage {
+  height: 25px;
 }

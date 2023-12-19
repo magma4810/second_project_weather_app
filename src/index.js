@@ -5,6 +5,11 @@ import { addButton } from "./button";
 
 const storageKeyLastCity = "lastCity";
 const storageKeyButtonList = "buttonList";
+document.querySelector(".clearStorage").addEventListener("click", () => {
+  localStorage.clear();
+  document.querySelector(".list").remove();
+  location.reload();
+});
 const lastCity =
   localStorage.getItem(storageKeyLastCity) === null
     ? false
