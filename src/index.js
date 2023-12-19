@@ -8,3 +8,7 @@ document.querySelector(".input_button").addEventListener("click", async () => {
   showWeather(list[0]);
   addButton(list[1]);
 });
+
+export function sum(a, b) {
+  return a + b;
+}

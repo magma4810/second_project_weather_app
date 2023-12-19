@@ -5,5 +5,10 @@ body {
 }
 
 input {
+  border-radius: 10px;
+}
+
+.show_weather {
+  border: 3px solid rgb(110, 156, 170);
   border-radius: 5px;
 }
