@@ -1,3 +1,5 @@
+import { showWeather } from "./weather";
+import { addButton } from "./button";
 const list = [];
 
 export function readInput() {
@@ -5,11 +7,7 @@ export function readInput() {
   const value = input.value;
   input.value = "";
   list.push(value);
-  addValueToList();
-}
-
-function addValueToList() {
-  document.querySelector(".list").innerHTML = `${list
-    .map((el) => `<li>${el}</li>`)
-    .join("")}`;
+  showWeather(value);
+  addButton(list);
+  //   return value;
 }
