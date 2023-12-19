@@ -1,9 +1,9 @@
 import { showWeather } from "./weather";
 
-export const addButton = (list) => {
+export const addButton = (value) => {
   const li = document.createElement("li");
   const button = document.createElement("button");
-  button.innerHTML = list[list.length - 1];
+  button.innerHTML = value;
   button.addEventListener("click", async () => {
     await showWeather(button.innerHTML);
   });
