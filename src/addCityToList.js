@@ -1,5 +1,3 @@
-import { showWeather } from "./weather";
-import { addButton } from "./button";
 const list = [];
 
 export function readInput() {
@@ -7,7 +5,5 @@ export function readInput() {
   const value = input.value;
   input.value = "";
   list.push(value);
-  showWeather(value);
-  addButton(list);
-  //   return value;
+  return [value, list];
 }
