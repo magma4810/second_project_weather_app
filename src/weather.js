@@ -7,11 +7,10 @@ export const getWeather = async (city) => {
   const weather = await response.json();
   return weather;
 };
-let weatherStorage;
 export const showWeather = async (city) => {
   const weather = await getWeather(city);
-  weatherStorage = `Погода в ${weather.name} <br>
+  document.querySelector(".show_weather").innerHTML =
+    `Погода в ${weather.name} <br>
   Temperature: ${weather.main.temp}˚
   <img src = https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png> `;
-  document.querySelector(".show_weather").innerHTML = weatherStorage;
 };

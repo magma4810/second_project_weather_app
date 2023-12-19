@@ -9,6 +9,7 @@ input {
 }
 
 .show_weather {
-  border: 3px solid rgb(110, 156, 170);
-  border-radius: 5px;
+  border: 2px solid rgb(110, 156, 170);
+  border-radius: 10px;
+  height: 50vh;
 }
