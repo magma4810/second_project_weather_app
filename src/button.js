@@ -8,7 +8,7 @@ export const addButton = (value) => {
     await showWeather(button.innerHTML);
     let staticMap = `https://static-maps.yandex.ru/v1?ll=${(
       await cityCoordinates(button.innerHTML)
-    ).join(",")}&z=12&apikey=220bcecd-2e57-4af8-9150-e82755be7199`;
+    ).join(",")}&z=12&apikey=e0b3de27-83db-41e7-b150-72e7d09d00fc`;
     document.querySelector(".map").src = staticMap;
   });
   li.append(button);

@@ -27,7 +27,7 @@ if (lastCity) {
   });
   staticMap = `https://static-maps.yandex.ru/v1?ll=${(
     await cityCoordinates(await lastCity)
-  ).join(",")}&z=12&apikey=220bcecd-2e57-4af8-9150-e82755be7199`;
+  ).join(",")}&z=12&apikey=e0b3de27-83db-41e7-b150-72e7d09d00fc`;
   document.querySelector(".map").src = staticMap;
 } else {
   const userCity = fetch("https://get.geojs.io/v1/ip/geo.json")
@@ -40,7 +40,7 @@ if (lastCity) {
   localStorage.setItem(storageKeyButtonList, JSON.stringify(buttonList));
   staticMap = `https://static-maps.yandex.ru/v1?ll=${(
     await cityCoordinates(await userCity)
-  ).join(",")}&z=12&apikey=220bcecd-2e57-4af8-9150-e82755be7199`;
+  ).join(",")}&z=12&apikey=e0b3de27-83db-41e7-b150-72e7d09d00fc`;
   document.querySelector(".map").src = staticMap;
 }
 
@@ -53,6 +53,6 @@ document.querySelector(".input_button").addEventListener("click", async () => {
   localStorage.setItem(storageKeyButtonList, JSON.stringify(buttonList));
   staticMap = `https://static-maps.yandex.ru/v1?ll=${(
     await cityCoordinates(JSON.parse(localStorage.getItem(lastCity)))
-  ).join(",")}&z=12&apikey=220bcecd-2e57-4af8-9150-e82755be7199`;
+  ).join(",")}&z=12&apikey=e0b3de27-83db-41e7-b150-72e7d09d00fc`;
   document.querySelector(".map").src = staticMap;
 });
