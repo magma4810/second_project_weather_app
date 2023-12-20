@@ -52,7 +52,7 @@ document.querySelector(".input_button").addEventListener("click", async () => {
   buttonList.push(value);
   localStorage.setItem(storageKeyButtonList, JSON.stringify(buttonList));
   staticMap = `https://static-maps.yandex.ru/v1?ll=${(
-    await cityCoordinates(JSON.parse(localStorage.getItem(lastCity)))
+    await cityCoordinates(value)
   ).join(",")}&z=12&apikey=e0b3de27-83db-41e7-b150-72e7d09d00fc`;
   document.querySelector(".map").src = staticMap;
 });
