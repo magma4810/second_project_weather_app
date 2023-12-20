@@ -2,9 +2,11 @@ import "./styles.css";
 import { readInput } from "./addCityToList";
 import { showWeather } from "./weather";
 import { addButton } from "./button";
+import { cityCoordinates } from "./cityCoordinates";
 
 const storageKeyLastCity = "lastCity";
 const storageKeyButtonList = "buttonList";
+let staticMap;
 document.querySelector(".clearStorage").addEventListener("click", () => {
   localStorage.clear();
   document.querySelector(".list").remove();
@@ -18,12 +20,15 @@ const buttonList =
   localStorage.getItem(storageKeyButtonList) === null
     ? []
     : JSON.parse(localStorage.getItem(storageKeyButtonList));
-
 if (lastCity) {
   showWeather(lastCity);
   buttonList.forEach((element) => {
     addButton(element);
   });
+  staticMap = `https://static-maps.yandex.ru/v1?ll=${(
+    await cityCoordinates(await lastCity)
+  ).join(",")}&z=12&apikey=220bcecd-2e57-4af8-9150-e82755be7199`;
+  document.querySelector(".map").src = staticMap;
 } else {
   const userCity = fetch("https://get.geojs.io/v1/ip/geo.json")
     .then((ip) => ip.json())
@@ -33,6 +38,10 @@ if (lastCity) {
   localStorage.setItem(storageKeyLastCity, JSON.stringify(await userCity));
   buttonList.push(await userCity);
   localStorage.setItem(storageKeyButtonList, JSON.stringify(buttonList));
+  staticMap = `https://static-maps.yandex.ru/v1?ll=${(
+    await cityCoordinates(await userCity)
+  ).join(",")}&z=12&apikey=220bcecd-2e57-4af8-9150-e82755be7199`;
+  document.querySelector(".map").src = staticMap;
 }
 
 document.querySelector(".input_button").addEventListener("click", async () => {
@@ -42,4 +51,8 @@ document.querySelector(".input_button").addEventListener("click", async () => {
   addButton(value);
   buttonList.push(value);
   localStorage.setItem(storageKeyButtonList, JSON.stringify(buttonList));
+  staticMap = `https://static-maps.yandex.ru/v1?ll=${(
+    await cityCoordinates(JSON.parse(localStorage.getItem(lastCity)))
+  ).join(",")}&z=12&apikey=220bcecd-2e57-4af8-9150-e82755be7199`;
+  document.querySelector(".map").src = staticMap;
 });
