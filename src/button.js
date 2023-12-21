@@ -30,5 +30,5 @@ export function addButtonReload(value) {
   });
   li.append(button);
   const list = document.querySelector(".list");
-  list.append(li, list.children[0]);
+  list.append(li);
 }

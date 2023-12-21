@@ -8,6 +8,7 @@ const storageKeyLastCity = "lastCity";
 const storageKeyAllCity = "allCity";
 
 let staticMap;
+
 document.querySelector(".clearStorage").addEventListener("click", () => {
   localStorage.clear();
   document.querySelector(".list").remove();
