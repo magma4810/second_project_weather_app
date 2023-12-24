@@ -13,5 +13,4 @@ export const showWeather = async (city) => {
     `Погода в ${weather.name} <br>
   Temperature: ${weather.main.temp}˚
   <img src = https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png> `;
-  console.log(document.querySelector(".show_weather").innerHTML);
 };

@@ -1,34 +1,61 @@
-import { getWeather, showWeather } from "./weather";
+import "whatwg-fetch";
+import { start } from "./index";
 
-function mockFetch(result) {
-  window.fetch = () =>
-    Promise.resolve({
-      json: () => Promise.resolve(result),
-    });
-}
-beforeEach(async () => {
-  let section = document.createElement("section");
-  section.className = "show_weather";
-  document.body.append(section);
+beforeEach(() => {
+  start(document.createElement("div"));
 });
-let weather;
-describe("test weather.js", () => {
-  it("get Weather", async () => {
-    mockFetch({
-      name: "Rome",
-      main: { temp: 1.98 },
-      weather: [{ icon: "04d" }],
-    });
-    weather = await getWeather();
-    expect(weather.name).toEqual("Rome");
-    expect(weather.main.temp).toEqual(1.98);
-    expect(weather.weather[0].icon).toEqual("04d");
+
+describe("add structure in DOM", () => {
+  it("add weaher container", () => {
+    expect(document.querySelector(".weaher_container").className).toBe(
+      "weaher_container",
+    );
   });
-  it("show Weather", async () => {
-    await showWeather("Rome");
-    expect(document.querySelector(".show_weather").innerHTML)
-      .toBe(`Погода в ${weather.name} <br>
-  Temperature: ${weather.main.temp}˚
-  <img src="https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png"> `);
+  it("add input", () => {
+    expect(document.querySelector("input").placeholder).toBe("Enter city");
+  });
+  it("add input button", () => {
+    const button = document.querySelector(".input_button");
+    expect(button.innerText).toBe("Show Weather");
+    expect(button.className).toBe("input_button");
+  });
+  it("add list", () => {
+    expect(document.querySelector(".list").className).toBe("list");
+  });
+  it("add button Clear", () => {
+    const clearStorage = document.querySelector(".clearStorage");
+    expect(clearStorage.className).toBe("clearStorage");
+    expect(clearStorage.innerText).toBe("Clear");
+  });
+  it("add section Show Weather", () => {
+    expect(document.querySelector(".show_weather").className).toBe(
+      "show_weather",
+    );
+  });
+  it("add map", () => {
+    expect(document.querySelector(".map").className).toBe("map");
+  });
+});
+
+describe("test main programm", () => {
+  it("test clear button", () => {
+    const clearButton = document.querySelector(".clearStorage");
+    clearButton.click();
+    expect(localStorage.getItem("allCity")).toBe(null);
+    expect(document.querySelector(".list").innerText).toBe(undefined);
+  });
+  it("lastCity and allCity", () => {
+    const storageKeyLastCity = "lastCity";
+    const storageKeyAllCity = "allCity";
+    const lastCity =
+      localStorage.getItem(storageKeyLastCity) === null
+        ? false
+        : JSON.parse(localStorage.getItem(storageKeyLastCity));
+    const allCity =
+      localStorage.getItem(storageKeyAllCity) === null
+        ? []
+        : JSON.parse(localStorage.getItem(storageKeyAllCity));
+    expect(lastCity).toBe(false);
+    expect(allCity).toStrictEqual([]);
   });
 });

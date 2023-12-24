@@ -44,6 +44,8 @@
     "*.{js,css}": "prettier --write"
   },
   "dependencies": {
-    "@jest/globals": "^29.7.0"
+    "@jest/globals": "^29.7.0",
+    "node-fetch": "^3.3.2",
+    "whatwg-fetch": "^3.6.20"
   }
 }
