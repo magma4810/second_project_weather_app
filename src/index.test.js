@@ -1,5 +1,5 @@
 import "whatwg-fetch";
-import { start } from "./index";
+import { start } from "./index.js";
 
 beforeEach(() => {
   start(document.createElement("div"));
