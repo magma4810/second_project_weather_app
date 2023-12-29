@@ -4,7 +4,7 @@
   "description": "![example event parameter](https://github.com/magma4810/weatherAPI_18_11_2023/actions/workflows/sanity-check.yml/badge.svg)",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --coverage",
     "lint": "prettier --check . && eslint .",
     "lint:fix": "prettier --write . && eslint . --fix",
     "prepare": "husky install",
