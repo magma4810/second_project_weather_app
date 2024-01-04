@@ -9,6 +9,5 @@ export const cityCoordinates = async (city) => {
     .then((g) => g.GeoObject)
     .then((g) => g.Point)
     .then((g) => g.pos);
-  // console.log((await position).split(" ").map((el) => Number(el)))
   return (await position).split(" ").map((el) => Number(el));
 };

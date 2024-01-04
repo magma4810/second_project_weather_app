@@ -1,4 +1,4 @@
-import { addButton } from "./button";
+import { addButton, addButtonReload } from "./button";
 import { showWeather } from "./weather";
 // import { cityCoordinates } from "./cityCoordinates";
 beforeEach(() => {
@@ -32,6 +32,19 @@ describe("addButton", () => {
     const button = document.querySelector(".list button");
     button.click();
     expect(showWeather).toHaveBeenCalledWith("Rome");
-    console.log(document.body.innerHTML);
+  });
+});
+describe("addButtonReload", () => {
+  it("add button to list", () => {
+    addButtonReload("London");
+    expect(
+      document.querySelector(".list").querySelector("button"),
+    ).toBeTruthy();
+  });
+  it("shows weather on click", () => {
+    addButtonReload("Rome");
+    const button = document.querySelector(".list button");
+    button.click();
+    expect(showWeather).toHaveBeenCalledWith("Rome");
   });
 });

@@ -1,5 +1,5 @@
 import { showWeather } from "./weather";
-import { cityCoordinates } from "./cityCoordinates";//test
+import { cityCoordinates } from "./cityCoordinates";
 
 export function addButton(value) {
   const li = document.createElement("li");
