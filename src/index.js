@@ -86,23 +86,26 @@ export async function start(div) {
 
   div.querySelector(".input_button").addEventListener("click", async () => {
     const value = readAndClearInput();
-    showWeather(value);
-    localStorage.setItem(storageKeyLastCity, JSON.stringify(value));
-    if (!allCity.includes(value)) {
-      addButton(value);
-      if (allCity.length === 10) {
-        allCity.pop();
-        div.querySelector(".list").childNodes[allCity.length + 1].remove();
-        allCity.unshift(value);
-      } else {
-        allCity.unshift(value);
+    let n = await showWeather(value);
+    console.log(n);
+    if (n) {
+      localStorage.setItem(storageKeyLastCity, JSON.stringify(value));
+      if (!allCity.includes(value)) {
+        addButton(value);
+        if (allCity.length === 10) {
+          allCity.pop();
+          div.querySelector(".list").childNodes[allCity.length + 1].remove();
+          allCity.unshift(value);
+        } else {
+          allCity.unshift(value);
+        }
+        localStorage.setItem(storageKeyAllCity, JSON.stringify(allCity));
       }
-      localStorage.setItem(storageKeyAllCity, JSON.stringify(allCity));
+      staticMap = `https://static-maps.yandex.ru/v1?ll=${(
+        await cityCoordinates(value)
+      ).join(",")}&z=12&apikey=e0b3de27-83db-41e7-b150-72e7d09d00fc`;
+      div.querySelector(".map").src = staticMap;
     }
-    staticMap = `https://static-maps.yandex.ru/v1?ll=${(
-      await cityCoordinates(value)
-    ).join(",")}&z=12&apikey=e0b3de27-83db-41e7-b150-72e7d09d00fc`;
-    div.querySelector(".map").src = staticMap;
   });
 }
 
