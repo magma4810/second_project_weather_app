@@ -86,9 +86,7 @@ export async function start(div) {
 
   div.querySelector(".input_button").addEventListener("click", async () => {
     const value = readAndClearInput();
-    let n = await showWeather(value);
-    console.log(n);
-    if (n) {
+    if (await showWeather(value)) {
       localStorage.setItem(storageKeyLastCity, JSON.stringify(value));
       if (!allCity.includes(value)) {
         addButton(value);

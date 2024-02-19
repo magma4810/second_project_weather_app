@@ -9,6 +9,8 @@ function mockFetch(result) {
 }
 
 describe("test weather.js", () => {
+  window.alert = jest.fn();
+  window.alert.mockClear();
   let section = document.createElement("section");
   section.className = "show_weather";
   document.body.append(section);
@@ -16,6 +18,7 @@ describe("test weather.js", () => {
     name: "Rome",
     main: { temp: 1.98 },
     weather: [{ icon: "04d" }],
+    cod: 200,
   });
   let weather;
   it("get Weather", async () => {

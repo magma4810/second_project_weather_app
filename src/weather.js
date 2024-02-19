@@ -5,12 +5,12 @@ export const getWeather = async (city) => {
       `https://api.openweathermap.org/data/2.5/weather?units=metric&q=
             ${city}&appid=${key}`,
     );
-    if (response.statusText != "OK") {
+    const weather = await response.json();
+    if (weather.cod != 200) {
       throw new Error(
         "Please enter the correct name of the city in Latin letters",
       );
     }
-    const weather = await response.json();
     return weather;
   } catch (e) {
     alert(e);
