@@ -6,7 +6,7 @@
 
 #### This is my first project, don't judge strictly. 😃
 
-[Website for viewing the application](https://magma4810.github.io/weather_app/)
+[Website for viewing the application](https://magma4810.github.io/weather_app_js/)
 
 - The application is written to display the user's weather in his city.
 
@@ -26,7 +26,7 @@
 
 #### Это мой первый проект, не судите строго. 😃
 
-[Сайт для просмотра приложения](https://magma4810.github.io/weather_app/)
+[Сайт для просмотра приложения](https://magma4810.github.io/weather_app_js/)
 
 - Приложение написано для отображения погоды пользователя в его городе.
 
